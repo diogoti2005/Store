@@ -1,5 +1,5 @@
 package Collection;
-
+import java.util.Scanner;
 public class Item {
 
     public long id;
@@ -8,6 +8,7 @@ public class Item {
     public static String newTitle;
     public static Type newType;
     private static int nextItemId = 0;
+    private double price;
 
 
     // Create a class constructor for the Item class
@@ -15,9 +16,21 @@ public class Item {
         this.id = id;
         this.title =title;
         this.type = type;
+        this.price = price;
 
     }
-   /* public static void main(String[] args) {
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", type=" + type +
+                ", price=" + price +
+                '}';
+    }
+
+/* public static void main(String[] args) {
 
         // adds 1 at 0 index firstList.add(1, 2);
 

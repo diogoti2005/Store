@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+public class UserOrder  implements Order{
 
-    public long id; //(generate automatically in constructor )
+    private long id; //(generate automatically in constructor )
     public LocalDateTime date; //(set as current day directly in constructor)
     public User user;
     public List<Item> items;
@@ -16,7 +16,7 @@ public class Order {
     // public  User newUser;
     //public  Item newItem;
     //get the value of id
-    public Order() {
+    public UserOrder() {
         this.id = getId();
         this.date = LocalDateTime.now();
         this.items = new ArrayList<>();
@@ -28,6 +28,22 @@ public class Order {
         id = nextUniqueId;
         return (int) id;
     }
+
+    @Override
+    public double sum() {
+        return 0;
+    }
+
+    @Override
+    public int count() {
+        return 0;
+    }
+
+    @Override
+    public LocalDateTime date() {
+        return null;
+    }
+
     public void registrationUser(User user) {
         this.user= user;
 
@@ -37,8 +53,17 @@ public class Order {
 
     }
 
+    @Override
+    public String toString() {
+        return "UserOrder{" +
+                "id=" + id +
+                ", date=" + date +
+                ", user=" + user +
+                ", items=" + items +
+                '}';
+    }
 
-    // Create a class constructor for the Order class
+// Create a class constructor for the Order class
    /* public static void main(String[] args) {
 
         Order newOrder = new Order(id, newUser, newItem, date);

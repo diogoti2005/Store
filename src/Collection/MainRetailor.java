@@ -1,8 +1,6 @@
 package Collection;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainRetailor {
     public static void main(String[] args) {
@@ -48,22 +46,50 @@ public class MainRetailor {
           //  System.out.println(m.getKey() + " " + m.getValue());
         }
 
+        /// create list of items
 
-
-
-        Order order1 = new Order();
-
-        order1.registrationUser(user1);
         Item mytoy = new Item(1, "lego", Type.TOY);
         Item mytoy2 = new Item(2, "legoGo", Type.TOY);
         Item mytoy3 = new Item(3, "legoUP", Type.TOY);
+
+
+        List<Item> listToys = new LinkedList<Item>();
+        listToys.add(mytoy);
+        listToys.add(mytoy2);
+        listToys.add(mytoy3);
+
+        String[] arrToys = new String[listToys.size()];
+
+        // ArrayList to Array Conversion
+        for (int i =0; i < listToys.size(); i++) {
+            arrToys[i] = String.valueOf(listToys.get(i));
+        }
+
+        for (String x : arrToys)
+            System.out.print( "item list:" + x + " ");
+
+
+        UserOrder order1 = new UserOrder();
+
+        order1.registrationUser(user1);
+        System.out.print( "item list:" + order1 + " ");
+
+
+
+        Scanner myNewOrderObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Hello please create new Order. Select item from the list "+ arrToys
+        );
+        //String orderCreated = mytoy.toString();
+
+
         order1.addItem(mytoy);
+        System.out.println("You  order is: " + order1);
         order1.addItem(mytoy2);
         order1.addItem(mytoy3);
         // order1.addItem(mytoy2);
         /// List<Item> clothes = order1.getitemBytype(Type.TOY)
         //Order newOrder = new Order("date");
-        System.out.println(order1.id);
+        System.out.println(order1.items);
         System.out.println(order1.date);
         System.out.println(order1.user + " " + order1);
 
